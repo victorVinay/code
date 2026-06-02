@@ -1,0 +1,23 @@
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Environment variables
+.env
+variables.env
+
+# EF Core Migrations (optional, but usually committed)
+# Migrations/
+
+docker-compose.yml
+
+# OS files
+.DS_Store
+Thumbs.db

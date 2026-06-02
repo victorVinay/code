@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Services/">
+    <Project Path="src/Services/EmployeeService/EmployeeService.csproj" />
+    <Project Path="src/Services/IdentityService/IdentityService.csproj" />
+    <Project Path="src/Services/LeaveBalanceService/LeaveBalanceService.csproj" />
+    <Project Path="src/Services/LeaveService/LeaveService.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="src/Shared/Shared/Shared.csproj" />
+  </Folder>
+</Solution>

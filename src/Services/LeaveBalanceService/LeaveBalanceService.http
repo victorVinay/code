@@ -1,0 +1,6 @@
+@LeaveBalanceService_HostAddress = http://localhost:5085
+
+GET {{LeaveBalanceService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
