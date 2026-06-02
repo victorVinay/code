@@ -38,7 +38,6 @@ builder.Services.AddScoped<IAuditLogRepository, AuditLogRepository>();
 
 // Add JWT Authentication
 var jwtSecret = builder.Configuration["Jwt:Secret"] ?? throw new InvalidOperationException("JWT Secret is not configured.");
-Console.WriteLine($"JWT Secret: {jwtSecret}"); // Debugging line - remove in production
 var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? throw new InvalidOperationException("JWT Issuer is not configured.");
 var jwtAudience = builder.Configuration["Jwt:Audience"] ?? throw new InvalidOperationException("JWT Audience is not configured.");
 
