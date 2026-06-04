@@ -1,18 +1,63 @@
 {
   "Routes": [
     {
-      "UpstreamPathTemplate": "/auth/{everything}",
-      "DownstreamPathTemplate": "/auth/{everything}",
+      "UpstreamPathTemplate": "/api/leaves/{everything}",
+      "DownstreamPathTemplate": "/api/leaves/{everything}",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "identityservice",
-          "Port": 8080
-        }
-      ]
+      "ServiceName": "leave-service",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "employee-service",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/employee/{everything}",
+      "DownstreamPathTemplate": "/api/employee/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "employee-service",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/team/{everything}",
+      "DownstreamPathTemplate": "/api/team/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "employee-service",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/admin/{everything}",
+      "DownstreamPathTemplate": "/api/admin/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "employee-service",
+      "UseServiceDiscovery": true,
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5000"
+    "BaseUrl": "http://localhost:5000",
+    "ServiceDiscoveryProvider": {
+      "scheme": "http",
+      "Host": "eureka-service",
+      "Port": 8761,
+      "Type": "Eureka"
+    }
   }
 }

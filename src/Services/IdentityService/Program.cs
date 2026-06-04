@@ -7,7 +7,7 @@ using IdentityService.Repositories.Interfaces;
 using IdentityService.Repositories.Implementations;
 using Shared.Services;
 using Scalar.AspNetCore;
-// using Steeltoe.Discovery.Eureka;
+using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -72,6 +72,9 @@ builder.Services.AddSingleton<ITokenService>(new JwtTokenService(
     accessTokenExpirationMinutes: 15
 ));
 
+builder.Services.AddEurekaDiscoveryClient();
+
+// Build the application
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -79,6 +82,8 @@ using (var scope = app.Services.CreateScope())
     var dbContext = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
     dbContext.Database.Migrate();
 }
+
+
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

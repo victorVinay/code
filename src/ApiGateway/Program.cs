@@ -1,5 +1,6 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Eureka;
 using Scalar.AspNetCore;
 
 
@@ -12,7 +13,11 @@ builder.Configuration
     .AddEnvironmentVariables();
 
 // Add Ocelot
-builder.Services.AddOcelot(builder.Configuration);
+builder.Services.
+    AddOcelot(builder.Configuration)
+    .AddEureka();
+
+
 
 // Add OpenAPI/Scalar
 builder.Services.AddOpenApi();
@@ -35,7 +40,7 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
 // Add Ocelot middleware

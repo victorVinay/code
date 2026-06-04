@@ -4,7 +4,7 @@ WORKDIR /src
 
 # Copy project files
 COPY ["src/Services/LeaveService/LeaveService.csproj", "src/Services/LeaveService/"]
-COPY ["src/Shared/Shared.csproj", "src/Shared/"]
+COPY ["src/Shared/Shared/Shared.csproj", "src/Shared/"]
 
 # Restore dependencies
 RUN dotnet restore "src/Services/LeaveService/LeaveService.csproj"

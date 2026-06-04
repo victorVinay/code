@@ -8,9 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Ocelot" Version="24.1.0" />
-    <!-- <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="4.0.0" />
-    <PackageReference Include="Steeltoe.Discovery.Eureka" Version="4.2.0" /> -->
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.8" />
+    <PackageReference Include="Ocelot.Provider.Eureka" Version="24.1.0" />
     <PackageReference Include="Scalar.AspNetCore" Version="2.14.14" />
   </ItemGroup>
 
